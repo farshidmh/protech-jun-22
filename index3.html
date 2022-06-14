@@ -1,0 +1,175 @@
+<html>
+
+<head>
+    <style>
+        #resultBox {
+            border: 1px solid #ccc;
+            width: 250px;
+            min-height: 300px;
+        }
+
+        .container {
+            width: 800px;
+            min-height: 300px;
+            margin: 0 auto;
+
+        }
+
+        .col-50 {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            min-height: 30px;
+            transition: 0.2s all;
+        }
+
+        .form-control {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .btn-start {
+            background-color: rgb(16, 190, 68);
+            border: 1px solid rgb(13, 170, 60);
+            width: 100%;
+            padding: 15px 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.5s all;
+        }
+
+        .btn-start:hover {
+            background-color: rgb(13, 158, 57);
+            border-radius: 10px;
+        }
+
+        .disabled {
+            background-color: rgb(156, 11, 11);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="col-50">
+            <div class="box">
+                <input type="number" id="inp_time" class="form-control" placeholder="Insert the starting time"
+                    value="5">
+            </div>
+
+            <div class="box">
+                <input type="checkbox" id="inp_up">
+                <label for="inp_up"> CountUp </label>
+
+            </div>
+
+            <div class="box">
+                <input type="checkbox" id="inp_down">
+                <label for="inp_down"> CountDown </label>
+            </div>
+
+            <div class="box">
+
+                <button type="button" onclick="myF2()" class="btn-start"> Click To RUN </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-50">
+
+            <div class="box disabled" id="box_up"></div>
+
+            <div class="box disabled" id="box_down"></div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var upCheckBox = document.getElementById('inp_up');
+        upCheckBox.addEventListener('change', e => {
+            if (e.target.checked) {
+                document.getElementById('box_up').classList.remove('disabled');
+            } else {
+                document.getElementById('box_up').classList.add('disabled');
+            }
+        })
+
+
+        var upCheckBox = document.getElementById('inp_down');
+        upCheckBox.addEventListener('change', e => {
+            if (e.target.checked) {
+                document.getElementById('box_down').classList.remove('disabled');
+            } else {
+                document.getElementById('box_down').classList.add('disabled');
+            }
+        })
+
+
+
+        var upInterval;
+        var downInterval;
+
+        var canActivateUp = true;
+        var canActivateDown = true;
+
+        function myF2() {
+
+            //clearInterval(upInterval);
+            //clearInterval(downInterval);
+
+            var upCheckBox = document.getElementById('inp_up').checked;
+            var downCheckBox = document.getElementById('inp_down').checked;
+
+            if (upCheckBox && canActivateUp) {
+
+                let timeUp  = parseInt(document.getElementById('inp_time').value);
+
+                upInterval = setInterval(function () {
+                    document.getElementById('box_up').innerHTML = timeUp++;
+                }, 1000)
+
+                canActivateUp = false;
+            }
+
+            if (downCheckBox && canActivateDown) {
+
+                let timeDown = parseInt(document.getElementById('inp_time').value);
+
+                downInterval = setInterval(function () {
+                    document.getElementById('box_down').innerHTML = timeDown--;
+                    if (timeDown < 0) {
+                        clearInterval(downInterval);
+                        canActivateDown = true;
+                    }
+                }, 1000)
+
+                canActivateDown = false;
+
+            }
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

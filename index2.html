@@ -1,0 +1,130 @@
+<html>
+
+<head>
+
+
+
+    <style>
+        #resultBox {
+            border: 1px solid #ccc;
+            width: 250px;
+            min-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="resultBox"></div>
+
+    <hr>
+
+    <button type="button" onclick="myF2()"> Click To RUN </button>
+
+
+    <script>
+
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            birthdate: 1980,
+            getFullName: function () {
+                return this.firstName + " " + this.lastName;
+            },
+            getAge: function () {
+                return 2022 - this.birthdate;
+            }
+        }
+
+        class Person {
+
+            constructor(name, family, birthdate) {
+
+                this.firstName = name;
+                this.lastName = family;
+                this.birthdate = birthdate;
+
+            }
+
+            getFullName() {
+                return this.firstName + " " + this.lastName;
+            }
+
+            getAge(currentYear) {
+
+                return currentYear - this.birthdate
+
+            }
+
+        }
+
+        function myF2() {
+
+            var time = 5;
+
+
+           let t =  setInterval( function(){
+
+
+
+                document.getElementById('resultBox').innerHTML = --time;  // time = time +1
+
+
+                if( time == 0 ){
+
+                    clearInterval( t );
+
+                }
+
+
+
+            },1000 )
+
+
+            /*
+
+
+            setInterval(function () {
+
+                let firstName = prompt("Enter your firstname", "Jane");
+
+                alert(firstName)
+
+
+            }, 5000)
+*/
+
+
+
+
+
+
+        }
+
+
+        function mf() {
+
+            // alert(person.getFullName())
+
+            // alert(person.getAge())
+
+
+            // var a = d.gbyId.value
+
+            //var p1 = new Person( a , "Doe", 1970)
+
+            var p1 = new Person("Jone", "Doe", 1970)
+
+            alert(p1.getFullName())
+
+            alert(p1.getAge(2022))
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

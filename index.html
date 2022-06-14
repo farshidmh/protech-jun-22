@@ -1,0 +1,131 @@
+<html>
+
+<head>
+
+
+
+    <style>
+        #resultBox {
+            border: 1px solid #ccc;
+            width: 250px;
+            min-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="inp_one"> First Name </label>
+    <input type="text" id="inp_one">
+    <br>
+    <label for="inp_two"> Last Name </label>
+    <input type="text" id="inp_two">
+    <br>
+    <label for="inp_op"> OP </label>
+    <input type="text" id="inp_op">
+    <hr>
+    <a href="#" onclick="myFirstFunction()"> Get Value </a>
+    <hr>
+    <div id="resultBox"></div>
+
+    <hr>
+
+    <button type="button" onclick="myF2()"> Click To RUN </button>
+
+
+    <script>
+
+        function myFirstFunction() {
+
+            var input1Value = parseFloat(document.getElementById('inp_one').value);
+            var input2Value = document.getElementById('inp_two').value;
+            input2Value = parseFloat(input2Value);
+            var opLogic = document.getElementById('inp_op').value;
+
+            var result = 0;
+
+            if (opLogic == 1) {
+                result = input1Value + input2Value
+            }
+            else if (opLogic == 2) {
+                /*
+                if (input1Value > input2Value) {
+                    result = input1Value - input2Value
+                }else{
+                    result = input2Value - input1Value 
+                }        
+*/
+                result = Math.abs(input2Value - input1Value)
+
+            }
+            else if (opLogic == 3) {
+                result = input1Value * input2Value;
+            } else if (opLogic == 4) {
+
+                if (input2Value != 0) {
+                    result = input1Value / input2Value
+                } else {
+                    result = " DIVISION BY ZERO! "
+                }
+            } else {
+                result = "Invalid OP"
+            }
+            document.getElementById('resultBox').innerHTML = result
+
+            /*
+            if (inputValue == 1) {
+                document.getElementById('resultBox').innerHTML = "Hello"
+
+            } else if (inputValue == 2) {
+                document.getElementById('resultBox').innerHTML = "World"
+
+            } else {
+                document.getElementById('resultBox').innerHTML = "Bye"
+            }
+*/
+        }
+
+        function myFunction(a, b) {
+            return a * b;
+        }
+
+        var c = myFunction(3, 4);
+
+        document.getElementById('resultBox').innerHTML = myFunction(5, 4);
+
+
+        var a = "Hello"
+
+        var a = "Bye"
+
+        const PI = 3.14;
+
+
+        function myF() {
+            alert(PI)
+        }
+
+        function myF2() {
+
+            var time = parseInt(document.getElementById('inp_one').value)
+
+            time *= 1000;  // time = time * 1000;
+
+
+            setTimeout(function () {
+
+                alert("DELAY")
+
+            }, time )
+
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
