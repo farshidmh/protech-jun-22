@@ -1,0 +1,55 @@
+.container {
+    border: 1px solid #ccc;
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-bottom: 10px;
+    float: left;
+    min-height: 100px;
+}
+
+.clearfix
+{
+    clear: both;
+}
+
+
+.container ul {
+
+    list-style-type: circle;
+
+}
+
+
+.container ol {
+
+    list-style-type: decimal-leading-zero;
+
+}
+
+
+.text-center {
+    text-align: center;
+
+}
+
+.btn-save {
+    background-color: #00ff00;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: 1s all;
+
+}
+
+
+.btn-save:hover{
+    background-color: #bd0d0d;
+    color: #fff;
+    padding: 15px 60px;
+}
+
+
+
